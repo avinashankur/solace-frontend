@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect, useCallback } from 'react'
 import type { ChangeEvent } from 'react'
-import { Box, Button, VStack, HStack, Text } from '@chakra-ui/react'
 import Webcam from 'react-webcam'
 import axios from 'axios'
+import { Button } from '@/components/ui/button'
 
 interface VideoRecorderProps {
   onClose: () => void
@@ -135,22 +135,15 @@ const VideoRecorder = ({ onClose }: VideoRecorderProps) => {
   }
 
   return (
-    <VStack gap={4} bg="white" p={6} borderRadius="xl" w="full">
+    <div className="flex w-full flex-col gap-4 bg-white py-6 rounded-xl">
       {/* Camera selection dropdown */}
       {devices.length > 0 && (
-        <Box w="full">
-          <Text fontSize="sm" mb={2}>Select Camera:</Text>
+        <div className="w-full">
+          <div className="text-sm mb-2">Select Camera:</div>
           <select
             value={selectedDeviceId}
             onChange={(e: ChangeEvent<HTMLSelectElement>) => setSelectedDeviceId(e.target.value)}
-            style={{
-              width: '100%',
-              padding: '8px',
-              borderRadius: '6px',
-              border: '1px solid #E2E8F0',
-              backgroundColor: 'white',
-              fontSize: '14px'
-            }}
+            className="w-full rounded-md border border-gray-200 bg-white p-2 text-sm"
           >
             <option value="">Select Camera</option>
             {devices.map((device) => (
@@ -159,26 +152,17 @@ const VideoRecorder = ({ onClose }: VideoRecorderProps) => {
               </option>
             ))}
           </select>
-        </Box>
+        </div>
       )}
 
       {/* Error message */}
       {error && (
-        <Box
-          w="full"
-          p={3}
-          bg="red.50"
-          borderRadius="md"
-          borderWidth={1}
-          borderColor="red.200"
-        >
-          <Text color="red.600" fontSize="sm">
-            ⚠️ {error}
-          </Text>
-        </Box>
+        <div className="w-full p-3 rounded-md border border-red-200 bg-red-50">
+          <div className="text-sm text-red-600">⚠️ {error}</div>
+        </div>
       )}
 
-      <Box w="full" h="400px" bg="gray.900" borderRadius="lg" overflow="hidden" position="relative">
+      <div className="w-full h-[400px] bg-gray-900 rounded-lg overflow-hidden relative">
         <Webcam
           audio={true}
           ref={webcamRef}
@@ -189,55 +173,44 @@ const VideoRecorder = ({ onClose }: VideoRecorderProps) => {
           onUserMediaError={handleUserMediaError}
         />
         {!cameraReady && !error && (
-          <Box
-            position="absolute"
-            top="50%"
-            left="50%"
-            transform="translate(-50%, -50%)"
-            color="white"
-            fontSize="lg"
-          >
-            <Text>Loading camera...</Text>
-          </Box>
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-lg">
+            Loading camera...
+          </div>
         )}
-      </Box>
-      
-      <HStack gap={4} w="full">
+      </div>
+
+      <div className="flex w-full gap-4">
         {!recording ? (
           <>
             <Button
-              colorScheme="red"
               onClick={handleStartRecording}
-              flex={1}
               disabled={!cameraReady}
+              className="flex-1 bg-red-500 text-white hover:bg-red-600"
             >
               Start Recording
             </Button>
-            <Button onClick={onClose}>Cancel</Button>
+            <Button variant="outline" onClick={onClose} className="border-gray-200">
+              Cancel
+            </Button>
           </>
         ) : (
           <>
             <Button
-              colorScheme="gray"
               onClick={handleStopRecording}
-              flex={1}
+              className="flex-1 bg-gray-200 text-gray-900 hover:bg-gray-300"
             >
               Stop Recording
             </Button>
           </>
         )}
-      </HStack>
+      </div>
 
       {recordedChunks.length > 0 && !recording && (
-        <Button
-          colorScheme="green"
-          onClick={handleUpload}
-          w="full"
-        >
+        <Button onClick={handleUpload} className="w-full bg-green-500 text-white hover:bg-green-600">
           Upload Video
         </Button>
       )}
-    </VStack>
+    </div>
   )
 }
 
