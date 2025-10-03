@@ -119,7 +119,7 @@ export default function Features({ onChatClick }: FeaturesProps) {
             <Button
               variant="outline"
               onClick={onChatClick}
-              className="gap-2 bg-transparent"
+              className="gap-2 bg-transparent border-border border"
             >
               <span>Quick prompt</span>
             </Button>
