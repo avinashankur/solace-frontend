@@ -25,7 +25,7 @@ export function Calendar({
   return (
     <section
       className={cn(
-        "rounded-xl text-card-foreground p-5 shadow-custom-sh",
+        "rounded-xl text-card-foreground p-5 shadow-custom-sh bg-white",
         "flex flex-col gap-4",
         className
       )}

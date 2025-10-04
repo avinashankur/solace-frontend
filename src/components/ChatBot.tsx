@@ -157,7 +157,7 @@ export default function ChatBot({
   return (
     <section
       className={cn(
-        "absolute inset-0 w-full rounded-xl bg-card text-card-foreground",
+        "absolute inset-0 w-full rounded-xl text-card-foreground",
         "outline-none",
         className
       )}
@@ -198,7 +198,7 @@ export default function ChatBot({
       </header>
 
       {/* Messages */}
-      <ScrollArea className="h-[370px]">
+      <ScrollArea className="h-[370px] bg-white">
         <div
           ref={listRef}
           className="p-3 flex flex-col gap-3"
@@ -265,7 +265,7 @@ export default function ChatBot({
             <div className="flex justify-start">
               <div className="max-w-[85%] rounded-2xl px-3 py-2 text-sm bg-muted text-foreground">
                 <span className="inline-flex items-center gap-2">
-                  <span className="sr-only">Assistant is typing</span>
+                  <span className="sr-only">Maitri is thinking</span>
                   <span className="flex gap-1" aria-hidden>
                     <i className="h-1.5 w-1.5 rounded-full bg-muted-foreground/60 animate-pulse" />
                     <i className="h-1.5 w-1.5 rounded-full bg-muted-foreground/60 animate-pulse [animation-delay:120ms]" />
@@ -286,7 +286,7 @@ export default function ChatBot({
           </label>
           <Input
             id="chat-input"
-            placeholder="Help me solve this problem"
+            placeholder="Hi Maitri, how are you?"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             disabled={loading}

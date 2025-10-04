@@ -10,12 +10,17 @@ function App() {
 
   return (
     <>
-      <img src="/bg.svg" alt="bg" className="absolute top-0 left-0" />
-      <img src="/maitri.svg" alt="Maitri" className="absolute top-15 left-1/2 -translate-x-1/2" />
-      <main className="mx-auto max-w-6xl mt-46">
+      {/* <div className="w-full h-[20rem] bg-red-400 absolute inset-0 -z-40"></div> */}
+      <img src="/bg.svg" alt="bg" className="absolute top-0 left-0 w-full" />
+      <img
+        src="/maitri.svg"
+        alt="Maitri"
+        className="absolute top-15 left-1/2 -translate-x-1/2"
+      />
+      <main className="mx-auto max-w-6xl mt-36 px-5">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 z-10 relative">
           <div className="space-y-5">
-            <Calendar completedDays={4} />
+            <Calendar completedDays={4} className="z-10" />
             <Features onChatClick={() => setShowChat(true)} />
           </div>
           <div className="overflow-hidden rounded-xl col-span-2 relative shadow-custom-sh">
@@ -26,7 +31,7 @@ function App() {
               <span className="font-medium">Chat with Maitri</span>
             </div>
 
-            <div className="flex flex-col items-center justify-center h-[80%]">
+            <div className="flex flex-col items-center justify-center h-[80%] bg-white">
               <div className="p-5">
                 <p className="text-sm mb-4 text-muted-foreground">
                   Your companion is here when you need a thoughtful
