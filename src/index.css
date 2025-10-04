@@ -39,6 +39,10 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-chat-box: var(--chat-box);
+  --color-tertiary: var(--tertiary);
+  --shadow-custom-sh: var(--custom-sh);
 }
 
 :root {
@@ -49,13 +53,13 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: hsla(0, 0%, 10%, 1);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
+  --secondary: hsla(218, 33%, 95%, 1);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
+  --accent: hsla(37, 100%, 66%, 1);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
@@ -74,6 +78,11 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  --chat-box: hsla(248, 27%, 17%, 1);
+  --tertiary: hsla(248, 51%, 44%, 1);
+  --custom-sh: 0px 7px 17px 4px hsla(243, 17%, 25%, 0.09);
+
 }
 
 .dark {
