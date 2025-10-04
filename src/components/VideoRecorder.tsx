@@ -7,7 +7,6 @@ import {
   ArrowLeft,
   PlayIcon,
   SquareStopIcon,
-  StopCircleIcon,
   UploadIcon,
 } from "lucide-react";
 
